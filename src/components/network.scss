@@ -1,0 +1,70 @@
+@import '../abstract/constants';
+
+svg {
+  position: absolute;
+  filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 1));
+  line {
+    stroke: $eggshell;
+    stroke-width: 3px;
+    transition: all 5s cubic-bezier(0, 0.57, 0.75, 1);
+
+    &.isMoving {
+      transition: all 3s cubic-bezier(0, 0.57, 0.75, 1);
+      stroke: $puce;
+      stroke-dasharray: 10;
+      stroke-dashoffset: 0;
+      animation: dash-movement 1s linear infinite;
+    }
+    &.isSynergy {
+      transition: all 3s cubic-bezier(0, 0.57, 0.75, 1);
+      stroke: $puce;
+      stroke-dasharray: 50 20 10 20;
+      stroke-dashoffset: 0;
+      animation: dash-synergy 2s linear infinite;
+    }
+  }
+  &.sky {
+    filter: drop-shadow(0px -5px 4px white);
+  }
+}
+
+circle {
+  fill: white;
+  &.star {
+    box-shadow: 0 0 5px white;
+  }
+}
+
+.ring {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  &:after {
+    position: absolute;
+    content: '';
+    transform: translate(-20px, -20px);
+    box-shadow: 0 0 13px 6px #fff;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+}
+
+@keyframes dash-movement {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 20;
+  }
+}
+@keyframes dash-synergy {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 200;
+  }
+}

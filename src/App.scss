@@ -1,0 +1,46 @@
+@import './abstract/constants';
+
+body {
+  // overflow-y: hidden;
+}
+
+.App {
+  background: rgb(9, 135, 202);
+  background: linear-gradient(
+    0deg,
+    rgba(9, 135, 202, 1) 0%,
+    rgba(0, 0, 0, 1) 73%
+  );
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#synergy {
+  padding: 20px;
+  background-color: transparent;
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  z-index: 1;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.4),
+    inset -3px -3px 4px rgba(0, 0, 0, 0.4);
+  &:focus,
+  &:active {
+    outline: none;
+  }
+  &:active {
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.4),
+      -3px -3px 4px rgba(0, 0, 0, 0.4);
+  }
+}
