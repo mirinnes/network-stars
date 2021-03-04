@@ -84,7 +84,7 @@ function getListCenters() {
 
 getListCenters();
 
-function Network({ synergy }) {
+function Network({ synergy, setShowButton }) {
   const [centerSelected, setCenterSelected] = React.useState();
   const [linesSelected, setLinesSelected] = React.useState();
   // FIXME: This is not properly done, there should be a better way to avoid the warning
@@ -112,10 +112,16 @@ function Network({ synergy }) {
     return linesList;
   };
 
+  const getRandomColor = () => {
+    return '#' + (((1 << 24) * Math.random()) | 0).toString(16);
+  };
+
   const handleOnCLickCircle = (e, id) => {
+    setShowButton();
     if (!synergy) {
       let selectedCircle = circles.find((c) => c.idCenter === id);
       selectedCircle.isMoving = !selectedCircle.isMoving;
+      selectedCircle.color = randomColor;
       setCenterSelected(selectedCircle);
       //
       let selectedLines = getSelectedLinesList(id);
@@ -151,10 +157,9 @@ function Network({ synergy }) {
     }
   };
 
-  React.useMemo(() => {
+  let randomColor = React.useMemo(() => {
     if (centerSelected) {
-      let randomColor = '#' + (((1 << 24) * Math.random()) | 0).toString(16);
-      centerSelected.color = randomColor;
+      return '#' + (((1 << 24) * Math.random()) | 0).toString(16);
     }
   }, [centerSelected]);
 
@@ -180,7 +185,7 @@ function Network({ synergy }) {
           <circle className='star' cx='1250' cy='270' r='4' />
           <circle className='star' cx='250' cy='570' r='1' />
           <circle className='star' cx='1200' cy='600' r='1' />
-          <circle className='star' cx='500' cy='900' r='3' />
+          <circle className='star' cx='800' cy='50' r='1' />
         </g>
       </svg>
       <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>
@@ -190,11 +195,9 @@ function Network({ synergy }) {
               return (
                 <line
                   style={{
-                    stroke: `${
-                      synergy
-                        ? '#' + (((1 << 24) * Math.random()) | 0).toString(16)
-                        : ''
-                    } ${s.isMoving ? centerSelected.color : ''}`,
+                    stroke: `${synergy ? getRandomColor() : ''} ${
+                      s.isMoving ? centerSelected.color : ''
+                    }`,
                   }}
                   className={`${s.isMoving ? 'isMoving' : ''} ${
                     synergy ? ' isSynergy' : ''
@@ -217,7 +220,28 @@ function Network({ synergy }) {
                 cy={c.coord.y}
                 r='8'
                 onClick={(e) => handleOnCLickCircle(e, c.idCenter)}
-              />
+              >
+                <set
+                  attributeName='fill'
+                  to={getRandomColor()}
+                  begin={`${c.idCenter}.mouseover`}
+                  end={`${c.idCenter}.mouseout`}
+                />
+                {circles.map((r) => {
+                  if (r.idCenter !== c.idCenter) {
+                    return (
+                      <set
+                        key={r.idCenter}
+                        attributeName='fill'
+                        to='rgba(255, 255, 255, 0.4)'
+                        begin={`${r.idCenter}.mouseover`}
+                        end={`${r.idCenter}.mouseout`}
+                      />
+                    );
+                  }
+                  return null;
+                })}
+              </circle>
             );
           })}
         </g>

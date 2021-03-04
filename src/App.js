@@ -6,15 +6,42 @@ import Card from './components/Card';
 function App() {
   const [sky, setSky] = React.useState(true);
   const [synergy, setSynergy] = React.useState(false);
+  const [showButton, setshowButton] = React.useState(false)
   const handleOnClickSynergy = () => {
-    setSynergy(!synergy);
-    setTimeout(() => setSky(false), 3000);
+    if (!synergy) {
+      setSynergy(!synergy);
+      setSky(false)
+    }
   };
+  const handleOnClose = () => {
+    setSky(true);
+    setshowButton(false);
+    setSynergy(!synergy);
+  }
+  const handleShowButton = () => {
+    setTimeout(() => {
+      setshowButton(true)
+    }, 3000);
+  }
+
+
   return (
     <>
-      <button id="synergy" onClick={() => handleOnClickSynergy()}>Synergy!</button>
-      <Network synergy={synergy} setSynergy={() => setSynergy(!synergy)} skyDisplayed={sky} />
-      <Card setSynergy={() => setSynergy(!synergy)} isNotDisplayed={sky} onClickClose={() => setSky(true)} />
+      <button
+        id="synergy"
+        style={{ display: `${showButton ? 'inline-block' : 'none'}` }}
+        onClick={() => handleOnClickSynergy()}
+        className="puff-in-hor"
+      >
+        Synergy!
+        </button>
+      <Network
+        synergy={synergy}
+        setShowButton={() => handleShowButton()}
+      />
+      <Card
+        isNotDisplayed={sky}
+        onClickClose={() => handleOnClose()} />
     </>
   );
 }
