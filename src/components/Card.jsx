@@ -20,15 +20,7 @@ function Card({ isNotDisplayed, onClickClose }) {
           </header>
           <article className='article'>
             <h3 className='focus-in-expand'>Success ...</h3>
-            <p>
-              <span id='wake-up'></span>
-              <span id='exited'></span>
-              <span id='new-day'></span>
-              <span id='text'>
-                {' '}
-                is wake up every morning exited to live a new day
-              </span>
-            </p>
+            <p>is wake up every morning exited to live a new day</p>
           </article>
         </div>
       </section>
