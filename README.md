@@ -10,7 +10,7 @@ It was super fun and very challanged. Somewhen I was afraid of not making it �
 
 I like to develop my own logic workflow. From the first design idea, I always grab my pencil and my notebook whenever it starts to get dirty!
 
-### Spoiler alert 🚨 : *whenever I face a hard problem, I must think it in spanish* 
+🚨 : *whenever I face a hard problem, I must think it in spanish* 
 
 ![01](https://user-images.githubusercontent.com/58486801/109954527-333af900-7cc0-11eb-8da8-3cb2c92b467b.jpg)
 
