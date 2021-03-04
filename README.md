@@ -6,7 +6,7 @@ It was super fun and very challenging. Somewhen I was afraid of not making it ðŸ
 
 ## Url:  https://network-stars.netlify.app/
 
-## Working process 
+# Working process 
 
 I like to develop my own logic workflow. From the first design idea, I always grab my pencil and my notebook whenever it starts to get dirty!
 
