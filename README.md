@@ -4,7 +4,7 @@ It was super fun and very challenging. Somewhen I was afraid of not making it ðŸ
 
 ### But finally, It works! Check it out
 
-## Url:  https://network-stars.netlify.app/
+## https://network-stars.netlify.app/
 
 # Working process 
 
