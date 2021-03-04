@@ -1,6 +1,6 @@
 # I developed a nested interactive network !
 
-It was super fun and very challanged. Somewhen I was afraid of not making it 😱 
+It was super fun and very challenging. Somewhen I was afraid of not making it 😱 
 
 ### But finally It works! Check it out
 
