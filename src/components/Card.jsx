@@ -19,7 +19,7 @@ function Card({ isNotDisplayed, onClickClose }) {
             </button>
           </header>
           <article className='article'>
-            <h3 className='focus-in-expand'>Success</h3>
+            <h3 className='focus-in-expand'>Success ...</h3>
             <p>
               <span id='wake-up'></span>
               <span id='exited'></span>
